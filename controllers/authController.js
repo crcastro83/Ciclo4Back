@@ -24,7 +24,7 @@ exports.autenticarUsuario = async (req, res) => {
         let payload ={
             usuario: {id : usuario.id},
         };
-        //res.jason(payload);
+        //res.json(payload);
         jwt.sign(
             payload,
             process.env.SECRETA,

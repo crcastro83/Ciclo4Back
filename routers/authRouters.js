@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/authController");
-const authMiddelware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middleware/authMiddleware");
 
 
 router.post(
@@ -9,7 +9,7 @@ router.post(
     authController.autenticarUsuario
 );
 
-router.get("/" , authMiddelware, authController.usuarioAutenticado);
+router.get("/" , authMiddleware, authController.usuarioAutenticado)
 
 
 module.exports = router;

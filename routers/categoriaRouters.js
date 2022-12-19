@@ -1,14 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const authMiddelware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middleware/authMiddleware");
 const categoriaController =require("../controllers/categoriaController");
 
-router.get("/", authMiddelware, categoriaController.leerCategoria);
+router.get("/home", categoriaController.leerCategoriaHome);
 
-router.post("/", authMiddelware, categoriaController.crearCategoria);
+router.get("/", authMiddleware, categoriaController.leerCategoria);
 
-router.put("/:id", authMiddelware, categoriaController.actualizarCategoria);
+router.get("/:id", authMiddleware, categoriaController.leerCategoriaId);
 
-router.delete("/:id", authMiddelware, categoriaController.borrarCategoria);
+router.post("/", authMiddleware, categoriaController.crearCategoria);
+
+router.put("/:id", authMiddleware, categoriaController.actualizarCategoria);
+
+router.delete("/:id", authMiddleware, categoriaController.borrarCategoria);
 
 module.exports = router;
