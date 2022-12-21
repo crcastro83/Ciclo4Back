@@ -7,6 +7,8 @@ router.get("/home", productoController.leerProductoHome);
 
 router.get("/:id", authMiddleware, productoController.leerProducto);
 
+router.get("/producto/:id", authMiddleware, productoController.leerProductoId);
+
 router.post("/", authMiddleware, productoController.crearProducto);
 
 router.put("/:id", authMiddleware, productoController.actualizarProducto);
